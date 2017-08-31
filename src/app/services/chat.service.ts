@@ -7,7 +7,17 @@ export class ChatService {
   chats: FirebaseListObservable<any[]>;
 
   constructor(private af: AngularFireDatabase) {
-        this.chats = af.list('/chats');
+        // this.chats = af.list('/chats');
+  }
+
+  cargarMensajes(){
+    this.chats = this.af.list('chats', {
+      query:{
+        limitToLast: 20,
+        orderByKey:true
+      }
+    });
+    return this.chats;
   }
 
   agregarMensaje(texto:string){
