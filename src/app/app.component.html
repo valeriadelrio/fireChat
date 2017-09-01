@@ -2,7 +2,11 @@
 <div class="container main-container">
   <h1>Firechat</h1>
   <hr>
-  <div class="chat-window">
+
+  <app-login *ngIf="!_cs.usuario"></app-login>
+
+  <div *ngIf="_cs.usuario"
+     class="chat-window">
     <app-chat></app-chat>
   </div>
 

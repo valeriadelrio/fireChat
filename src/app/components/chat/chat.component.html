@@ -3,7 +3,7 @@
 <div id="app-mensajes" class="app-mensajes">
 
   <div *ngFor="let chat of _cs.chats | async"
-        [ngClass]="{'text-right': _cs.usuario.nombre == chat.nombre}">
+        [ngClass]="{'text-right': _cs.usuario.nombre != chat.nombre}">
     <span class="badge" [ngClass]="{'badge-primary': _cs.usuario.nombre == chat.nombre,
                                     'badge-success': _cs.usuario.nombre != chat.nombre}">
       {{chat.nombre}}
