@@ -5,6 +5,9 @@ import { Mensaje } from '../interfaces/mensaje.interface';
 @Injectable()
 export class ChatService {
   chats: FirebaseListObservable<any[]>;
+  usuario: any = {
+    nombre: "Mauro"
+  };
 
   constructor(private af: AngularFireDatabase) {
         // this.chats = af.list('/chats');
