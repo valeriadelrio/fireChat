@@ -33,8 +33,9 @@ export class ChatService {
 
   agregarMensaje(texto:string){
     let mensaje:Mensaje = {
-      nombre: "Valeria",
-      mensaje: texto
+      nombre: this.usuario.displayName,
+      mensaje: texto,
+      uid: this.usuario.uid
     }
 
     return this.chats.push(mensaje);
