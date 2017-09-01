@@ -8,4 +8,8 @@ import { ChatService } from './services/chat.service';
 export class AppComponent {
 
   constructor(private _cs: ChatService) {   }
+
+  salir(){
+      this._cs.logout();
+  }
 }

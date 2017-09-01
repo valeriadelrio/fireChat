@@ -42,7 +42,15 @@ export class ChatService {
   }
 
   login(cuenta:string) {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    let proveedor: any;
+    if(cuenta == "google"){
+      proveedor = new firebase.auth.GoogleAuthProvider();
+
+    }else{
+      proveedor = new firebase.auth.TwitterAuthProvider();
+
+    }
+    this.afAuth.auth.signInWithPopup(proveedor)
       .then(resp => {
         this.usuario=resp.user;
         localStorage.setItem('usuario', JSON.stringify(this.usuario));
@@ -51,6 +59,9 @@ export class ChatService {
   }
 
   logout() {
+
+    localStorage.removeItem('usuario');
+    this.usuario=null;
     this.afAuth.auth.signOut();
   }
 
